@@ -22,5 +22,5 @@ Currently the following formats are included :
 * [[http://txt2tags.org/|txt2tags]]
 * [[http://wikicreole.org/|WikiCreole]]
 
-If the gesture was performed on an ##a## element, the link will point to its ##href##, otherwise to the current document.
-If there is selected text, that will be the link text, otherwise the link text or the document title respectively.
+If the gesture was performed on an {{{a}}} element, the link will point to its {{{href}}}, otherwise to the current document.
+If there is selected text, that will be the link text, otherwise the link {{{text}}} or the document {{{title}}} respectively.
