@@ -1,0 +1,26 @@
+= FireGestures Script
+
+The [[https://addons.mozilla.org/en-US/firefox/addon/firegestures/|FireGestures]] extension for Firefox beside the built-in scripts can also run scripts written by the
+user. A few such scripts can be downloaded from the [[http://xuldev.org/firegestures/getscripts.php|extension's home page script collection]].
+
+Here are some scripts I wrote.
+
+== [Popup,Hybrid] Copy URL and Title
+
+Displays a list of formats and copies a link to the clipboard.
+
+Currently the following formats are included :
+* [[http://methods.co.nz/asciidoc/|AsciiDoc]]
+* [[http://bbcode.org/|BBCode]] ( Bulletin Board Code )
+* [[http://haml-lang.com/|#haml]] ( HTML Abstraction Markup Language )
+* [[http://w3.org/standards/techs/html|HTML]] ( HyperText Markup Language )
+* [[http://daringfireball.net/projects/markdown/|Markdown]]
+* [[http://orgmode.org/|Org-Mode]] ( Org Emacs Mode )
+* Plain text
+* [[http://textile.thresholdstate.com/|Textile]]
+* [[http://tipmaster.com/includes/tgmlinfo.cfm|TGML]] ( Tecumseh Group Markup Language )
+* [[http://txt2tags.org/|txt2tags]]
+* [[http://wikicreole.org/|WikiCreole]]
+
+If the gesture was performed on an ##a## element, the link will point to its ##href##, otherwise to the current document.
+If there is selected text, that will be the link text, otherwise the link text or the document title respectively.
