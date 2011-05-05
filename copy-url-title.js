@@ -18,17 +18,15 @@ if (FireGestures.API_copyURLTitle===undefined) {
     source:undefined,
     command:function(markUp) {
 
-      var value={}
+      var value={
+        'url':window.content.location.href,
+        'title':window.content.document.title
+      }
 
-      if (this.source.nodeName.toLowerCase()=='a') {
+      if (this.source.nodeName.toLowerCase()=='a' && this.source.href) {
         value={
           'url':this.source.href,
           'title':this.source.text
-        }
-      } else {
-        value={
-          'url':window.content.location.href,
-          'title':window.content.document.title
         }
       }
 
@@ -39,7 +37,7 @@ if (FireGestures.API_copyURLTitle===undefined) {
       this.clipboard.copyString(text)
 
       FireGestures.setStatusText(markUp+' link in clipboard')
-      FireGestures.clearStatusText(1000)
+      FireGestures.clearStatusText(2500)
 
     }
 
@@ -51,16 +49,16 @@ FireGestures.API_copyURLTitle.source=FireGestures.sourceNode;
 
 FireGestures.generatePopup(event,
   [
-    { label: 'Plain',    oncommand: 'this.API_copyURLTitle.command("Plain")' },
-    { label: 'HTML',     oncommand: 'this.API_copyURLTitle.command("HTML")' },
-    { label: 'TGML',     oncommand: 'this.API_copyURLTitle.command("TGML")' },
-    { label: 'Creole',   oncommand: 'this.API_copyURLTitle.command("Creole")' },
-    { label: 'BBCode',   oncommand: 'this.API_copyURLTitle.command("BBCode")' },
-    { label: 'AsciiDoc', oncommand: 'this.API_copyURLTitle.command("AsciiDoc")' },
-    { label: 'Haml',     oncommand: 'this.API_copyURLTitle.command("Haml")' },
-    { label: 'Markdown', oncommand: 'this.API_copyURLTitle.command("Markdown")' },
-    { label: 'Org-mode', oncommand: 'this.API_copyURLTitle.command("Org-mode")' },
-    { label: 'Textile',  oncommand: 'this.API_copyURLTitle.command("Textile")' },
-    { label: 'txt2tags', oncommand: 'this.API_copyURLTitle.command("txt2tags")' }
+    { label:'Plain',    oncommand:'this.API_copyURLTitle.command("Plain")' },
+    { label:'HTML',     oncommand:'this.API_copyURLTitle.command("HTML")' },
+    { label:'TGML',     oncommand:'this.API_copyURLTitle.command("TGML")' },
+    { label:'Creole',   oncommand:'this.API_copyURLTitle.command("Creole")' },
+    { label:'BBCode',   oncommand:'this.API_copyURLTitle.command("BBCode")' },
+    { label:'AsciiDoc', oncommand:'this.API_copyURLTitle.command("AsciiDoc")' },
+    { label:'Haml',     oncommand:'this.API_copyURLTitle.command("Haml")' },
+    { label:'Markdown', oncommand:'this.API_copyURLTitle.command("Markdown")' },
+    { label:'Org-mode', oncommand:'this.API_copyURLTitle.command("Org-mode")' },
+    { label:'Textile',  oncommand:'this.API_copyURLTitle.command("Textile")' },
+    { label:'txt2tags', oncommand:'this.API_copyURLTitle.command("txt2tags")' }
   ]
 )
