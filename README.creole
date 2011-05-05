@@ -9,4 +9,4 @@ Here are some scripts I wrote.
 * **Change http: / https:** - Changes the protocol between plain and secure HTTP
 * **1 Click 2 Search 4 Word** - Searches for the previously single-clicked word
 
-This scripts were intentionally kept short. For details see the [[/feherke/FireGestures-script/wiki/|wiki section]] of this GitHub repository.
+This scripts were intentionally kept short. For details see the [[FireGestures-script/wiki/|wiki section]] of this GitHub repository.
