@@ -12,7 +12,8 @@ if (FireGestures.API_copyURLTitle===undefined) {
       'Markdown':'[{title}]({url})',
       'Org-mode':'[[{url}][{title}]]',
       'Textile':'"{title}":{url}',
-      'txt2tags':'[{title} {url}]'
+      'txt2tags':'[{title} {url}]',
+      'POD':'L<{title}|{url}>'
     },
     clipboard:Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper),
     source:undefined,
@@ -37,7 +38,7 @@ if (FireGestures.API_copyURLTitle===undefined) {
       this.clipboard.copyString(text)
 
       FireGestures.setStatusText(markUp+' link in clipboard')
-      FireGestures.clearStatusText(2500)
+      FireGestures.clearStatusText(1000)
 
     }
 
@@ -59,6 +60,7 @@ FireGestures.generatePopup(event,
     { label:'Markdown', oncommand:'this.API_copyURLTitle.command("Markdown")' },
     { label:'Org-mode', oncommand:'this.API_copyURLTitle.command("Org-mode")' },
     { label:'Textile',  oncommand:'this.API_copyURLTitle.command("Textile")' },
-    { label:'txt2tags', oncommand:'this.API_copyURLTitle.command("txt2tags")' }
+    { label:'txt2tags', oncommand:'this.API_copyURLTitle.command("txt2tags")' },
+    { label:'POD',      oncommand:'this.API_copyURLTitle.command("POD")' }
   ]
 )
