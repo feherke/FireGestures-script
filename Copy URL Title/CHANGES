@@ -1,0 +1,19 @@
+0.0 - April 2011
+  [+] Initial release.
+
+0.1 - May 2011
+  [!] Excluded the a tags without href attribute from being handled as links.
+
+0.2 - May 2011
+  [+] Added POD link format.
+
+0.3 - May 2011
+  [+] Added RDoc link format.
+
+0.4 - February 2012
+  [+] Added DocBook link format.
+  [+] Possibility to escape special characters.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )

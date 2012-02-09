@@ -2,19 +2,24 @@ if (FireGestures.API_copyURLTitle===undefined) {
 
   FireGestures.API_copyURLTitle={
     format:{
-      'Plain':'{url}\n{title}',
-      'HTML':'<a href="{url}">{title}</a>',
-      'TGML':'[link {url}]{title}[/link]',
-      'Creole':'[[{url}|{title}]]',
-      'BBCode':'[url={url}]{title}[/url]',
-      'AsciiDoc':'{url}[{title}]',
-      'Haml':'%a{:href=>"{url}"}{title}',
-      'Markdown':'[{title}]({url})',
-      'Org-mode':'[[{url}][{title}]]',
-      'Textile':'"{title}":{url}',
-      'txt2tags':'[{title} {url}]',
-      'POD':'L<{title}|{url}>',
-      'RDoc':'{{title}}[{url}]'
+      'Plain':'{{url}}\n{{title}}',
+      'HTML':'<a href="{{url|entity}}">{{title|entity}}</a>',
+      'TGML':'[link {{url}}]{{title}}[/link]',
+      'Creole':'[[{{url}}|{{title}}]]',
+      'BBCode':'[url={{url}}]{{title}}[/url]',
+      'AsciiDoc':'{{url}}[{{title}}]',
+      'Haml':'%a{:href=>"{{url}}"}{{title}}',
+      'Markdown':'[{{title|escape:]}}]({{url}})',
+      'Org-mode':'[[{{url}}][{{title}}]]',
+      'Textile':'"{{title}}":{{url}}',
+      'txt2tags':'[{{title}} {{url}}]',
+      'POD':'L<{{title}}|{{url}}>',
+      'RDoc':'{{{title}}}[{{url}}]',
+      'DocBook':'<ulink url="{{url|entity}}">{{title|entity}}</ulink>',
+    },
+    filter:{
+      'entity':function(what) { return what.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') },
+      'escape':function(what,char) { return what.replace(new RegExp('(['+char.replace(/([\[\]-])/g,'\\$1')+'])','g'),'\\$1') },
     },
     clipboard:Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper),
     source:undefined,
@@ -34,7 +39,17 @@ if (FireGestures.API_copyURLTitle===undefined) {
 
       if (FireGestures.getSelectedText()) value.title=FireGestures.getSelectedText()
 
-      var text=this.format[markUp].replace(/\{(url|title)\}/g,function(p0,p1){return value[p1]})
+      var text=this.format[markUp].replace(/\{\{((?:url|title)(?:\|(?:entity|url|escape:.*?))*)\}\}/g,function(p0,p1) {
+        var part=p1.split('|')
+        var result=value[part.shift()]
+
+        part.forEach(function(one) {
+          piece=one.split(':')
+          result=FireGestures.API_copyURLTitle.filter[piece[0]](result,piece[1])
+        })
+
+        return result
+      })
 
       this.clipboard.copyString(text)
 
@@ -63,6 +78,7 @@ FireGestures.generatePopup(event,
     { label:'Textile',  oncommand:'this.API_copyURLTitle.command("Textile")' },
     { label:'txt2tags', oncommand:'this.API_copyURLTitle.command("txt2tags")' },
     { label:'POD',      oncommand:'this.API_copyURLTitle.command("POD")' },
-    { label:'RDoc',     oncommand:'this.API_copyURLTitle.command("RDoc")' }
+    { label:'RDoc',     oncommand:'this.API_copyURLTitle.command("RDoc")' },
+    { label:'DocBook',  oncommand:'this.API_copyURLTitle.command("DocBook")' },
   ]
 )

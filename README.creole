@@ -5,8 +5,9 @@ user. A few such scripts can be downloaded from the [[http://xuldev.org/firegest
 
 Here are some scripts I wrote.
 
-* **[Popup,Hybrid] Copy URL and Title** - Displays a list of formats and copies a link to the clipboard
-* **Change http: / https:** - Changes the protocol between plain and secure HTTP
 * **1 Click 2 Search 4 Word** - Searches for the previously single-clicked word
+* **Change http: / https:** - Changes the protocol between plain and secure HTTP
+* **[Popup] Change Protocol** - Improved version of Change http: / https:
+* **[Popup,Hybrid] Copy URL and Title** - Displays a list of formats and copies a link to the clipboard
 
-This scripts were intentionally kept short. For details see the [[http://github.com/feherke/FireGestures-script/wiki|wiki section]] of this GitHub repository.
+This scripts were intentionally kept short. For details see the [[http://feherke.github.com/javascript/firegestures/|FireGestures section of my site]].

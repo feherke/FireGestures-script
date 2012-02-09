@@ -1,0 +1,2 @@
+* Maybe should cut off the path when changing to ftp: protocol.
+* Maybe the same should be done for spdy: too.

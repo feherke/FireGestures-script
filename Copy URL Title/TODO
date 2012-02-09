@@ -1,0 +1,2 @@
+* Escape the special characters specific for each markup.
+* Maybe conditional escaping for Shift-gesture.

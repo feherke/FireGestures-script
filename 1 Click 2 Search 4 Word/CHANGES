@@ -1,0 +1,10 @@
+0.0 - May 2011
+  [+] Initial release.
+
+0.1 - February 2012
+  [*] Use better regular expression than `\W` for word separator.
+  [+] Shift-gesture copy the term into the search bar.
+
+
+
+( Legend : [+] added, [-] removed, [*] changed, [!] fixed )
