@@ -5,6 +5,9 @@
   [*] Renamed to [Popup] Change Protocol.
   [+] Added popup list.
 
+0.2 - January 2014
+  [!] Updated to work again after FireFox/FireGestures/whatever internal changes.
+
 
 
 ( Legend : [+] added, [-] removed, [*] changed, [!] fixed )

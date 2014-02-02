@@ -19,9 +19,9 @@ if (! event.shiftKey) {
 
 FireGestures.generatePopup(event,
   [
-    { label:'http:',  oncommand:'this.API_changeProtocol.command("http:")' },
-    { label:'https:', oncommand:'this.API_changeProtocol.command("https:")' },
-    { label:'spdy:',  oncommand:'this.API_changeProtocol.command("spdy:")' },
-    { label:'ftp:',   oncommand:'this.API_changeProtocol.command("ftp:")' },
+    { label:'http:',  oncommand:'FireGestures.API_changeProtocol.command("http:")' },
+    { label:'https:', oncommand:'FireGestures.API_changeProtocol.command("https:")' },
+    { label:'spdy:',  oncommand:'FireGestures.API_changeProtocol.command("spdy:")' },
+    { label:'ftp:',   oncommand:'FireGestures.API_changeProtocol.command("ftp:")' },
   ]
 )
